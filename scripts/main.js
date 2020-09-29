@@ -6,7 +6,7 @@ async function getData()
   const data = await response.text();
   console.log(data);
   
-  const rows = data.split('\n');
+  const rows = data.split('\n').slice(1);
   console.log(rows);
 }
 
