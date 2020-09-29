@@ -7,4 +7,4 @@ async function getData()
   console.log(data);
 }
 
-getdata();
+getData();
