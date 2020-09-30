@@ -1,19 +1,16 @@
 async function getData()
-{
-  const xs = [];
-  const ys = [];
-  
+{ 
   const response = await fetch('zonal.csv');
   const data = await response.text();
-  
+ 
+  const xs = [];
+  const ys = []; 
   const table = data.split('\n').slice(1);
   table.forEach(row =>
   {
     const columns = row.split(',');
-    const year = columns[0];
-    xs.push(year);
-    const temp = columns[1];
-    ys.push(temp);
+    xs.push(columns[0]);
+    ys.push(columns[1]);
     console.log(year, temp);
   });
   return (xs, ys);
@@ -21,8 +18,8 @@ async function getData()
 
 async function chartIt()
 {
-  const data = await getData();
   const ctx = document.getElementById('chart').getContext('2d');
+  const data = await getData();
   const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -38,4 +35,4 @@ async function chartIt()
   });
 }
 
-chartIt();
+//chartIt();
