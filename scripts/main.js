@@ -18,7 +18,7 @@ function chartIt()
 {
   const ctx = document.getElementById('chart').getContext('2d');
   const xlabels = [];
-  const chart = new Chart(ctx, {
+  const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
       labels: xlabels,
