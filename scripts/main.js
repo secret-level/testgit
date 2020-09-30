@@ -16,8 +16,9 @@ async function getData()
   });
 }
 
-function chartIt()
+async function chartIt()
 {
+  await getData();
   const ctx = document.getElementById('chart').getContext('2d');
   const myChart = new Chart(ctx, {
     type: 'bar',
@@ -34,5 +35,4 @@ function chartIt()
   });
 }
 
-getData();
 chartIt();
