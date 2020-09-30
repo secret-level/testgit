@@ -7,15 +7,23 @@ async function getData()
   console.log(data);
   
   const rows = data.split('\n').slice(1);
-  console.log(rows);
+  table.forEach(row =>
+  {
+    const columns = row.split(',');
+    const year = columns[0];
+    xlabels.push(year);
+    const temp = columns[1];
+    console.log(year, temp);
+  }
   
-  var ctx = document.getElementById('chart').getContext('2d');
-  var chart = new Chart(ctx, {
+  const ctx = document.getElementById('chart').getContext('2d');
+  const xlabels = [];
+  const chart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: xlabels,
         datasets: [{
-            label: '# of Votes',
+            label: 'Average temperature',
             data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
