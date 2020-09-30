@@ -1,4 +1,5 @@
 const xlabels = [];
+const ytemps = [];
 
 async function getData()
 {
@@ -12,6 +13,7 @@ async function getData()
     const year = columns[0];
     xlabels.push(year);
     const temp = columns[1];
+    ytemps.push(temp);
     console.log(year, temp);
   });
 }
@@ -26,7 +28,7 @@ async function chartIt()
       labels: xlabels,
       datasets: [{
         label: 'Average temperature',
-        data: [12, 19, 3, 5, 2, 3],
+        data: ytemps,
         backgroundColor: ['rgba(255, 99, 132, 0.2)'],
         borderColor: ['rgba(255, 99, 132, 1)'],
         borderWidth: 1
