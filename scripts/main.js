@@ -8,7 +8,7 @@ async function getData()
   {
     const columns = row.split(',');
     const year = columns[0];
-    xlabels.push(year);
+    //xlabels.push(year);
     const temp = columns[1];
     console.log(year, temp);
   });
