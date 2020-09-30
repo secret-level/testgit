@@ -1,3 +1,5 @@
+const xlabels = [];
+
 async function getData()
 {
   const response = await fetch('zonal.csv');
@@ -8,7 +10,7 @@ async function getData()
   {
     const columns = row.split(',');
     const year = columns[0];
-    //xlabels.push(year);
+    xlabels.push(year);
     const temp = columns[1];
     console.log(year, temp);
   });
@@ -17,7 +19,6 @@ async function getData()
 function chartIt()
 {
   const ctx = document.getElementById('chart').getContext('2d');
-  const xlabels = [];
   const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
