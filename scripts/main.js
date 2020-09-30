@@ -11,7 +11,7 @@ async function getData()
     const columns = row.split(',');
     xs.push(columns[0]);
     ys.push(columns[1]);
-    console.log(year, temp);
+    console.log(columns[0], columns[1]);
   });
   return (xs, ys);
 }
