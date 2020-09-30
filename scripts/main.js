@@ -35,4 +35,4 @@ async function chartIt()
   });
 }
 
-//chartIt();
+chartIt();
