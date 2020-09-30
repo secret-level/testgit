@@ -1,8 +1,8 @@
-const xlabels = [];
-const ytemps = [];
-
 async function getData()
 {
+  const xs = [];
+  const ys = [];
+  
   const response = await fetch('zonal.csv');
   const data = await response.text();
   
@@ -11,24 +11,25 @@ async function getData()
   {
     const columns = row.split(',');
     const year = columns[0];
-    xlabels.push(year);
+    xs.push(year);
     const temp = columns[1];
-    ytemps.push(temp);
+    ys.push(temp);
     console.log(year, temp);
   });
+  return (xs, ys);
 }
 
 async function chartIt()
 {
-  await getData();
+  const data = await getData();
   const ctx = document.getElementById('chart').getContext('2d');
   const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: xlabels,
+      labels: data.xs,
       datasets: [{
         label: 'Average temperature',
-        data: ytemps,
+        data: data.ys,
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
         borderWidth: 1
