@@ -1,3 +1,5 @@
+ window.addEventListener('load', chartIt);
+
 async function getData()
 { 
   const response = await fetch('zonal.csv');
