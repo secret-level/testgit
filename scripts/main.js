@@ -1,11 +1,11 @@
 async function getData()
 { 
   const response = await fetch('zonal.csv');
-  const data = await response.text();
+  const stuff = await response.text();
  
   const xs = [];
   const ys = []; 
-  const table = data.split('\n').slice(1);
+  const table = stuff.split('\n').slice(1);
   table.forEach(row =>
   {
     const columns = row.split(',');
@@ -19,14 +19,14 @@ async function getData()
 async function chartIt()
 {
   const ctx = document.getElementById('chart').getContext('2d');
-  const data = await getData();
+  const myData = await getData();
   const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: data.xs,
+      labels: myData.xs,
       datasets: [{
         label: 'Average temperature',
-        data: data.ys,
+        data: myData.ys,
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
         borderWidth: 1
